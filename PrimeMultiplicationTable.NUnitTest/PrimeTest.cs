@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using PrimeMultiplicationTableTDD;
+using System;
 using System.Collections.Generic;
 
 namespace PrimeMultiplicationTableTest.NUnit
@@ -35,6 +36,16 @@ namespace PrimeMultiplicationTableTest.NUnit
             bool result = sut.IsGreaterThanZero(0);
             //assert
             Assert.That(result, Is.False);
+        }
+
+        [Test]
+        public void ShouldReturnSevenWhenInputFour()
+        {
+            
+            //act
+            Int64 result = sut.GenerateNthPrime(4);
+            //assert
+            Assert.AreEqual(result, 7);
         }
 
         [Test]
