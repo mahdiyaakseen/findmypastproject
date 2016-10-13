@@ -10,7 +10,7 @@ namespace PrimeMultiplicationTable
     {
         static void Main(string[] args)
         {
-            System.Console.WriteLine("hello world, trying git");
+            //System.Console.WriteLine("hello world, trying git");
         }
     }
 }
