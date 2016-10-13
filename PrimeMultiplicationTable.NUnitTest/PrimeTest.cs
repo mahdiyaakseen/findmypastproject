@@ -49,10 +49,9 @@ namespace PrimeMultiplicationTableTest.NUnit
         }
 
         [Test]
-        public void ShouldReturnListOneTwoThreeFiveWhenInputFour()
+        public void ShouldReturnListTwoThreeFiveWhenInputThree()
         {
             expected = new List<int>();
-            expected.Add(1);
             expected.Add(2);
             expected.Add(3);
             expected.Add(5);
