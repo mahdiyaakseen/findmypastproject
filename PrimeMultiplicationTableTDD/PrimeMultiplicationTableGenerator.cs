@@ -29,8 +29,7 @@ namespace PrimeMultiplicationTableTDD
         public List<List<int>> GeneratePrimeMultiplicationTable(int primesRequested)
         {
             PrimeGenerator primeGen = new PrimeGenerator();
-            int nthPrime = primeGen.GenerateNthPrime(primesRequested);
-            List<int> primes = primeGen.GeneratePrimes(nthPrime);
+            List<int> primes = primeGen.GeneratePrimes(primesRequested);
             List<List<int>> primeMultiplicationTable = GeneratePrimeMultiplicationTable(primes);
             return primeMultiplicationTable;
         }

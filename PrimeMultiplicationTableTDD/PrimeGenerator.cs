@@ -45,8 +45,9 @@ namespace PrimeMultiplicationTableTDD
             return (int)p;
         }
 
-        public List<int> GeneratePrimes(int nthPrime)
+        public List<int> GeneratePrimes(int requestedPrimes)
         {
+            int nthPrime = GenerateNthPrime(requestedPrimes);
             //throw new NotImplementedException();
             List<int> result = new List<int>();
 
@@ -82,8 +83,10 @@ namespace PrimeMultiplicationTableTDD
                         result.Add((k << 1) + 1);
                     }
                 }
-                        
-            result.Add(nthPrime);
+            if(requestedPrimes<6)
+            {
+                result.Add(nthPrime);
+            }                    
             return result;
         }
 
