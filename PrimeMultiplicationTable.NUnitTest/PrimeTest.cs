@@ -9,7 +9,7 @@ namespace PrimeMultiplicationTableTest.NUnit
     public class PrimeTest
     {
         Prime sutPrimes;  // system under test primes
-        List<int> expectedPrimes;  
+        List<int> expectedPrimes;
         List<List<int>> expectedPMTable;
         PrimeMultiplicationTable sutPMTable;  // system under test prime multiplication table
 
@@ -20,9 +20,9 @@ namespace PrimeMultiplicationTableTest.NUnit
             sutPrimes = new Prime();
             sutPMTable = new PrimeMultiplicationTable();
         }
-        
+
         [Test]
-        public void ShouldCheckGreaterThanOneReturnTrueForTwo()
+        public void IsGreaterThenZeroTest1()
         {
             //act
             bool result = sutPrimes.IsGreaterThanZero(2);
@@ -31,7 +31,7 @@ namespace PrimeMultiplicationTableTest.NUnit
         }
 
         [Test]
-        public void ShouldCheckGreaterThanOneReturnFalseForZero()
+        public void IsGreaterThanZeroTest2()
         {
             //act
             bool result = sutPrimes.IsGreaterThanZero(0);
@@ -40,9 +40,9 @@ namespace PrimeMultiplicationTableTest.NUnit
         }
 
         [Test]
-        public void ShouldReturnSevenWhenInputFour()
+        public void PrimeGeneratorTest1()
         {
-            
+
             //act
             Int64 result = sutPrimes.GenerateNthPrime(4);
             //assert
@@ -50,7 +50,7 @@ namespace PrimeMultiplicationTableTest.NUnit
         }
 
         [Test]
-        public void ShouldReturnListTwoThreeFiveWhenInputThree()
+        public void PrimeGeneratorTest2()
         {
             expectedPrimes = new List<int>();
             expectedPrimes.Add(2);
@@ -64,28 +64,30 @@ namespace PrimeMultiplicationTableTest.NUnit
 
         [Test]
         public void PrimeMultiplicationTest()
-        {                                  
+        {
+            List<int> providedPrimes = new List<int>() { (int)2, (int)3, (int)5, (int)7 };
             expectedPMTable = new List<List<int>>();
+            expectedPMTable.Add(providedPrimes);
             expectedPMTable.Add(new List<int> { (int)4, (int)6, (int)10, (int)14 });
             expectedPMTable.Add(new List<int> { (int)6, (int)9, (int)15, (int)21 });
             expectedPMTable.Add(new List<int> { (int)10, (int)15, (int)25, (int)35 });
             expectedPMTable.Add(new List<int> { (int)14, (int)21, (int)35, (int)49 });
-            // act
-            List<int> providedPrimes = new List<int>() { (int)2, (int)3, (int)5, (int)7 };
+            // act            
             List<List<int>> result = sutPMTable.GeneratePrimeMultiplicationTable(providedPrimes);
             //assert
             CollectionAssert.AreEqual(expectedPMTable[0], result[0]);
             CollectionAssert.AreEqual(expectedPMTable[1], result[1]);
             CollectionAssert.AreEqual(expectedPMTable[2], result[2]);
+            CollectionAssert.AreEqual(expectedPMTable[3], result[3]);
         }
 
         [OneTimeTearDown]
         public void TestTearDown()
         {
             //dispose
-            sutPrimes =null;
+            sutPrimes = null;
             sutPMTable = null;
-             
+
         }
 
     }
