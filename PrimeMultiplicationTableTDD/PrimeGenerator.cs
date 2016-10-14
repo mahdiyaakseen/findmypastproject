@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace PrimeMultiplicationTableTDD
 {
-    public class Prime : IPrime 
+    public class PrimeGenerator : IPrime 
     {
        
-        public bool IsGreaterThanZero(int primeRequest)
+        public bool IsGreaterThanOne(int primeRequest)
         {
             bool result = false;
             
@@ -68,17 +68,22 @@ namespace PrimeMultiplicationTableTDD
                     bits[i + j * denominator] = false; //i+j+2ij set as false
                 }
             }
-            // as SOS gives only odd primes (2i+1)(2j+1) , we manually add the only even prime number i.e., 2
-            result.Add(2);
-            // for each k remaining in bits (2k+1) is prime
-            for (int k = 1; k < m; k++)
+            if (nthPrime > 2)
             {
-                if (bits[k])
-                {
-                    totalCount++;
-                    result.Add((k << 1) + 1);
-                }
+                // as SOS gives only odd primes (2i+1)(2j+1) , we manually add the only even prime number i.e., 2
+                result.Add(2);
             }
+                // for each k remaining in bits (2k+1) is prime
+                for (int k = 1; k < m; k++)
+                {
+                    if (bits[k])
+                    {
+                        totalCount++;
+                        result.Add((k << 1) + 1);
+                    }
+                }
+                        
+            result.Add(nthPrime);
             return result;
         }
 

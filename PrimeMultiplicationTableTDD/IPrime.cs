@@ -8,7 +8,7 @@ namespace PrimeMultiplicationTableTDD
 {
     public interface IPrime
     {
-        bool IsGreaterThanZero(int num1);
+        bool IsGreaterThanOne(int num1);
         int GenerateNthPrime(int request );
         List<int> GeneratePrimes(int nthPrime);
     }
