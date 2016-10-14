@@ -51,35 +51,34 @@ namespace PrimeMultiplicationTableTDD
             List<int> result = new List<int>();
 
             int totalCount = 0;
-            int k = nthPrime / 2;
-            BitArray bits = new BitArray(k + 1, true);
-
-            /* SET ALL TO PRIME STATUS */
-            bits.SetAll(true);
-
-            /* SEIVE */
+            int m = nthPrime / 2; // as even numbers will be removed by Sieve of Sundaram,
+            BitArray bits = new BitArray(m + 1, true);
+            
+            // implementing seive of sundaram
             int maxVal = 0;
             int denominator = 0;
-            for (int i = 1; i < k; i++)
+            //getting rid of even numbers
+            for (int i = 1;i < m; i++)
             {
-                denominator = (i << 1) + 1;
-                maxVal = (k - i) / denominator;
-                for (int j = i; j <= maxVal; j++)
+                denominator = (i << 1) + 1; // bitwise operation multiply by 2 and increment 1, 2i+1
+                maxVal = (m - i) / denominator; // max value becomes nthPrime/2 
+                //no need to loop j from 0 to m
+                for (int j = i; j <= maxVal; j++) //j<(m-1)/(2i+1) from inequality i+j+2ij<m
                 {
-                    bits[i + j * denominator] = false;
+                    bits[i + j * denominator] = false; //i+j+2ij set as false
                 }
             }
-            int dummy = 0;
-            for (int i = 1; i < k; i++)
+            // as SOS gives only odd primes (2i+1)(2j+1) , we manually add the only even prime number i.e., 2
+            result.Add(2);
+            // for each k remaining in bits (2k+1) is prime
+            for (int k = 1; k < m; k++)
             {
-                if (bits[i])
+                if (bits[k])
                 {
                     totalCount++;
-                    //dummy = (i << 1) + 1; // dummy contains prime number.The code is here not ignore the prime number calcuation part.
-                    result.Add((i << 1) + 1);
+                    result.Add((k << 1) + 1);
                 }
             }
-            //return (totalCount + 1); // 2 will be missed in Sieve Of Sundaram
             return result;
         }
 
