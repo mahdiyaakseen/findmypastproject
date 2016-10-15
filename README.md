@@ -1,5 +1,5 @@
 # findmypastproject- PRIME NUMBER MULTIPLICATION GENERATOR
-How to Run this: Run PrimeMultiplicationTable application from bin to kick start this console application. Make sure the PrimeMultiplicationTableTDD.dll is in same directory.
+How to Run this: open solution in Visual studio, build release, run PrimeMultiplicationTable application from bin to kick start this console application. Make sure the PrimeMultiplicationTableTDD.dll is in same directory.
 
 What I am Pleased with: Pleased with the sieve of Sundaram implementation algorithm for prime number generation. I learnt TDD. formatting the table in console took a bit of time.
 
