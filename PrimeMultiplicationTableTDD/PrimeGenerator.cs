@@ -8,18 +8,7 @@ using System.Threading.Tasks;
 namespace PrimeMultiplicationTableTDD
 {
     public class PrimeGenerator : IPrime 
-    {
-       
-        public bool IsGreaterThanOne(int primeRequest)
-        {
-            bool result = false;
-            
-            if (primeRequest>1)
-            {
-                result= true;
-            }
-            return result;
-        }
+    {     
 
         public int GenerateNthPrime(int request)
         {
